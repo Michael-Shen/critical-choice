@@ -114,7 +114,6 @@
         <p>When you create an account or use our app, we collect the following information:</p>
         <ul>
             <li><strong>Email Address:</strong> Used for account authentication and communication</li>
-            <li><strong>Display Name:</strong> Your name as provided during sign-up (optional)</li>
             <li><strong>Profile Photo:</strong> Your profile picture from Apple Sign-In or Google Sign-In (if provided)</li>
             <li><strong>User ID:</strong> A unique identifier assigned to your account</li>
         </ul>
@@ -122,8 +121,8 @@
         <h3>1.2 Authentication Information</h3>
         <p>We support multiple sign-in methods:</p>
         <ul>
-            <li><strong>Apple Sign-In:</strong> We receive your Apple ID, email (which may be private relay), and name</li>
-            <li><strong>Google Sign-In:</strong> We receive your Google account email, profile picture, and name</li>
+            <li><strong>Apple Sign-In:</strong> We receive your Apple ID and email (which may be private relay)</li>
+            <li><strong>Google Sign-In:</strong> We receive your Google account email and profile picture</li>
         </ul>
 
         <h3>1.3 Task and Project Data</h3>
@@ -224,7 +223,7 @@
         <h3>3.1 Where Your Data is Stored</h3>
         <p>Your data is stored in multiple locations depending on the features you use:</p>
         <ul>
-            <li><strong>Firebase Authentication:</strong> Stores your authentication credentials (email, user ID, display name, profile photo)</li>
+            <li><strong>Firebase Authentication:</strong> Stores your authentication credentials (email, user ID, profile photo)</li>
             <li><strong>Firebase Firestore:</strong> Stores cloud/team project data including tasks, project details, and membership information (only for team projects)</li>
             <li><strong>Your Device Storage:</strong> Local projects, achievements, app preferences, and settings are stored on your device</li>
             <li><strong>RevenueCat:</strong> Stores your subscription status and entitlements (anonymous customer ID)</li>
@@ -256,7 +255,7 @@
             <li><strong>Purpose:</strong> User authentication and cloud data storage for team projects</li>
             <li><strong>Data Collected:</strong> 
                 <ul>
-                    <li>Authentication: Email, user ID, display name, profile photo</li>
+                    <li>Authentication: Email, user ID, profile photo</li>
                     <li>Firestore: Team project data, tasks, member lists, project metadata (only for cloud/team projects)</li>
                 </ul>
             </li>
@@ -266,14 +265,14 @@
         <h3>4.2 Google Sign-In</h3>
         <ul>
             <li><strong>Purpose:</strong> User authentication</li>
-            <li><strong>Data Collected:</strong> Email, name, profile picture</li>
+            <li><strong>Data Collected:</strong> Email, profile picture</li>
             <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">https://policies.google.com/privacy</a></li>
         </ul>
 
         <h3>4.3 Apple Sign-In</h3>
         <ul>
             <li><strong>Purpose:</strong> User authentication</li>
-            <li><strong>Data Collected:</strong> Apple ID, email (may be private relay), name</li>
+            <li><strong>Data Collected:</strong> Apple ID, email (may be private relay)</li>
             <li><strong>Privacy Policy:</strong> <a href="https://www.apple.com/legal/privacy/" target="_blank">https://www.apple.com/legal/privacy/</a></li>
         </ul>
 
@@ -320,7 +319,7 @@
         <p>We may share your information only in the following limited circumstances:</p>
         <ul>
             <li><strong>With Your Consent:</strong> When you explicitly give us permission to share specific information</li>
-            <li><strong>Team Collaboration (Premium):</strong> When you create or join a team project, your display name, user ID, and tasks you create are visible to all project members</li>
+            <li><strong>Team Collaboration (Premium):</strong> When you create or join a team project, your user ID and tasks you create are visible to all project members</li>
             <li><strong>Service Providers:</strong> With trusted third-party services (Firebase, RevenueCat) that help us operate the app</li>
             <li><strong>Legal Requirements:</strong> When required by law, court order, or government request</li>
             <li><strong>Business Transfers:</strong> If we are involved in a merger, acquisition, or sale of assets, your data may be transferred (you will be notified)</li>
@@ -330,7 +329,7 @@
         <h3>5.3 Team Project Data Sharing</h3>
         <p>When you participate in team projects (Premium feature):</p>
         <ul>
-            <li><strong>Visible to Team Members:</strong> Your display name, tasks you create, and task updates are visible to all project members</li>
+            <li><strong>Visible to Team Members:</strong> Your user ID, tasks you create, and task updates are visible to all project members</li>
             <li><strong>Project Host Controls:</strong> The project creator (host) can invite or remove members</li>
             <li><strong>Real-Time Sync:</strong> Changes to team projects are synchronized in real-time across all members' devices</li>
             <li><strong>Leaving Projects:</strong> You can leave team projects at any time, which removes your access to that project's data</li>
