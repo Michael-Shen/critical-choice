@@ -366,8 +366,8 @@
         <ul>
             <li>Delete individual tasks and projects directly in the app (local deletion from your device)</li>
             <li>Uninstall the app to remove all local data from your device</li>
-            <li>Contact us to request deletion of your authentication data from Firebase</li>
-            <li>When you delete your account, authentication data is permanently removed from Firebase within 30 days</li>
+            <li>Delete your account through app settings - your data is immediately removed from our systems (see section 7.2 for details)</li>
+            <li>Account deletion is immediate and irreversible - you cannot recover your data once deleted</li>
         </ul>
 
         <h3>6.5 Manage Google Calendar Access</h3>
@@ -396,15 +396,26 @@
         </ul>
 
         <h3>7.2 Deleted Accounts</h3>
+        <p>When you delete your account, the following happens:</p>
         <ul>
-            <li>When you delete your account, we initiate the deletion process immediately</li>
-            <li>Your authentication data is removed from Firebase within 30 days</li>
-            <li>You are automatically removed from all team projects you joined</li>
-            <li>Team projects you hosted will have their host transferred or be deleted (members will be notified)</li>
-            <li>Your subscription data in RevenueCat is marked as deleted</li>
-            <li>Backup copies may persist for up to 90 days for disaster recovery purposes</li>
-            <li>Local data remains on your device until you uninstall the app</li>
+            <li><strong>Immediately deleted from our systems:</strong>
+                <ul>
+                    <li>Your account data (email, user ID, profile photo) is removed from Firebase Authentication</li>
+                    <li>All your cloud/team project data is permanently deleted from Firestore</li>
+                    <li>Team projects you hosted are deleted (members will be notified)</li>
+                    <li>You are removed from all team projects you joined</li>
+                    <li>Your account cannot be recovered after deletion</li>
+                </ul>
+            </li>
+            <li><strong>Third-party service provider data:</strong>
+                <ul>
+                    <li>Firebase/Google backup systems may retain copies for up to 30-90 days for disaster recovery purposes (this is managed by Firebase, not by our app)</li>
+                    <li>RevenueCat subscription data is marked as deleted</li>
+                </ul>
+            </li>
+            <li><strong>Your device:</strong> Local project data remains on your device until you uninstall the app</li>
         </ul>
+        <p><strong>Important:</strong> From your perspective, account deletion is immediate and irreversible. You will lose access instantly and cannot recover your data. However, Firebase's internal backup systems (beyond our control) may retain copies for disaster recovery for up to 90 days.</p>
 
         <h3>7.3 Inactive Accounts</h3>
         <ul>
@@ -416,8 +427,7 @@
         <h2>8. App Age Rating</h2>
         <p><strong>App Store Age Rating: 4+ (Suitable for All Ages)</strong></p>
         <p>Critical Choice is designed for users of all ages and does <strong>not</strong> contain any objectionable content, violence, gambling, mature themes, or inappropriate material. The app is rated <strong>4+</strong> on the Apple App Store, meaning it is suitable for children and adults.</p>
-        <p><strong>Children's Privacy:</strong> We do not knowingly collect personal information from children under the age of 13 (or the minimum age in your jurisdiction). If you are a parent or guardian and believe your child has provided us with personal information, please contact us immediately. We will take steps to delete such information from our systems.</p>
-    <p><strong>Children's Privacy:</strong> While Critical Choice is rated 4+ and suitable for all ages, we do <strong>not</strong> knowingly collect personal information from children under the age of 13 (or the minimum age in your jurisdiction) in accordance with privacy laws such as COPPA. If you are a parent or guardian and believe your child under 13 has provided us with personal information, please contact us immediately. We will take steps to delete such information from our systems.</p>
+        <p><strong>Children's Privacy:</strong> While Critical Choice is rated 4+ and suitable for all ages, we do <strong>not</strong> knowingly collect personal information from children under the age of 13 (or the minimum age in your jurisdiction) in accordance with privacy laws such as COPPA. If you are a parent or guardian and believe your child under 13 has provided us with personal information, please contact us immediately. We will take steps to delete such information from our systems.</p>
 
         <h2>9. International Data Transfers</h2>
         
@@ -498,7 +508,7 @@
             <p><strong>App Name:</strong> Critical Choice (Todo 4Q)<br>
             <strong>Developer:</strong> Michael Shen<br>
             <strong>Email:</strong> <a href="mailto:webmic1209@gmail.com">webmic1209@gmail.com</a><br>
-            <strong>Website</strong> <a href="https://michael-shen.github.io/critical-choice/" target="_blank">https://michael-shen.github.io/critical-choice/</a> <br>
+            <strong>Website:</strong> <a href="https://michael-shen.github.io/critical-choice/" target="_blank">https://michael-shen.github.io/critical-choice/</a><br>
             <strong>GitHub:</strong> <a href="https://github.com/Michael-Shen" target="_blank">https://github.com/Michael-Shen</a></p>
             
             <p>We will respond to your inquiry within 30 days.</p>
