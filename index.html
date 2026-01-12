@@ -367,6 +367,12 @@
             background: var(--background-secondary);
         }
 
+        .screenshots-wrapper {
+            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
         .screenshots-container {
             display: flex;
             gap: 30px;
@@ -374,17 +380,108 @@
             padding: 30px 0;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none; /* IE/Edge */
+        }
+
+        .screenshots-container::-webkit-scrollbar {
+            display: none; /* Chrome/Safari */
         }
 
         .screenshot {
             flex: 0 0 300px;
-            scroll-snap-align: start;
+            scroll-snap-align: center;
+            text-align: center;
+        }
+
+        .scroll-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: white;
+            border: none;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            color: var(--primary-color);
+            transition: all 0.3s;
+            z-index: 10;
+        }
+
+        .scroll-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .scroll-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .scroll-btn.left {
+            left: -25px;
+        }
+
+        .scroll-btn.right {
+            right: -25px;
+        }
+
+        .scroll-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+        }
+
+        .scroll-indicator {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--text-light);
+            opacity: 0.3;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .scroll-indicator.active {
+            background: var(--primary-color);
+            opacity: 1;
+            width: 30px;
+            border-radius: 5px;
+        }
+
+        .screenshot {
+            flex: 0 0 300px;
+            scroll-snap-align: center;
+            text-align: center;
         }
 
         .screenshot img {
             width: 100%;
             border-radius: 20px;
             box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            margin-bottom: 15px;
+        }
+
+        .screenshot-caption {
+            color: var(--text-dark);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .screenshot-description {
+            color: var(--text-light);
+            font-size: 14px;
+            line-height: 1.5;
+            padding: 0 10px;
         }
 
         .screenshot-placeholder {
@@ -560,6 +657,14 @@
                 display: none;
             }
 
+            .scroll-btn {
+                display: none;
+            }
+
+            .screenshot {
+                flex: 0 0 250px;
+            }
+
             .language-switcher {
                 margin-top: 10px;
             }
@@ -624,7 +729,7 @@
                     <button class="lang-btn" data-lang="zh">繁中</button>
                     <button class="lang-btn" data-lang="zh-cn">簡中</button>
                     <button class="lang-btn" data-lang="ja">JP</button>
-                    <button class="lang-btn" data-lang="ko">KR</button>
+                     
                     <button class="lang-btn" data-lang="ko">한국어</button>
                 </div>
             </div>
@@ -862,31 +967,43 @@
                 Beautiful, intuitive design meets powerful productivity features
             </p>
 
-            <div class="screenshots-container">
+            <div class="screenshots-wrapper">
+                <button class="scroll-btn left" onclick="scrollScreenshots(-1)" aria-label="Previous screenshot">‹</button>
+                <button class="scroll-btn right" onclick="scrollScreenshots(1)" aria-label="Next screenshot">›</button>
+                
+                <div class="screenshots-container" id="screenshotsContainer">
                 <div class="screenshot">
-                    <div class="screenshot-placeholder">
-                        📊<br>Quadrant View<br>Coming Soon
-                    </div>
+                    <img src="images/screenshot-quadrant-view.png" alt="Quadrant View - Eisenhower Matrix interface">
+                    <div class="screenshot-caption" data-i18n="screenshot1-title">📊 Quadrant View</div>
+                    <div class="screenshot-description" data-i18n="screenshot1-desc">Visualize all tasks organized by the 4 quadrants with color-coded priorities</div>
                 </div>
                 <div class="screenshot">
-                    <div class="screenshot-placeholder">
-                        ✅<br>Daily Tasks<br>Coming Soon
-                    </div>
+                    <img src="images/screenshot-daily-tasks.png" alt="Daily Tasks view with prioritized task list">
+                    <div class="screenshot-caption" data-i18n="screenshot2-title">✅ Daily Tasks</div>
+                    <div class="screenshot-description" data-i18n="screenshot2-desc">Focus on today's priorities sorted optimally: Q2 → Q1 → Q3 → Q4</div>
                 </div>
                 <div class="screenshot">
-                    <div class="screenshot-placeholder">
-                        📈<br>Statistics<br>Coming Soon
-                    </div>
+                    <img src="images/screenshot-statistics.png" alt="Statistics and achievement tracking">
+                    <div class="screenshot-caption" data-i18n="screenshot3-title">📈 Progress & Stats</div>
+                    <div class="screenshot-description" data-i18n="screenshot3-desc">Track your productivity journey with achievement levels and insights</div>
                 </div>
                 <div class="screenshot">
-                    <div class="screenshot-placeholder">
-                        📅<br>Calendar Sync<br>Coming Soon
-                    </div>
+                    <img src="images/screenshot-calendar-sync.png" alt="Google Calendar synchronization">
+                    <div class="screenshot-caption" data-i18n="screenshot4-title">📅 Calendar Sync</div>
+                    <div class="screenshot-description" data-i18n="screenshot4-desc">Import Google Calendar events as tasks with one tap integration</div>
                 </div>
                 <div class="screenshot">
-                    <div class="screenshot-placeholder">
-                        ⚙️<br>Settings<br>Coming Soon
-                    </div>
+                    <img src="images/screenshot-team-collaboration.png" alt="Team collaboration features">
+                    <div class="screenshot-caption" data-i18n="screenshot5-title">👥 Team Projects</div>
+                    <div class="screenshot-description" data-i18n="screenshot5-desc">Collaborate with teams on cloud projects and assign tasks (Premium)</div>
+                </div>
+                
+                <div class="scroll-indicators" id="scrollIndicators">
+                    <div class="scroll-indicator active" onclick="scrollToScreenshot(0)"></div>
+                    <div class="scroll-indicator" onclick="scrollToScreenshot(1)"></div>
+                    <div class="scroll-indicator" onclick="scrollToScreenshot(2)"></div>
+                    <div class="scroll-indicator" onclick="scrollToScreenshot(3)"></div>
+                    <div class="scroll-indicator" onclick="scrollToScreenshot(4)"></div>
                 </div>
             </div>
         </div>
@@ -1062,6 +1179,16 @@
                 'feature12-desc': 'Create tasks hands-free with voice commands. Speech-to-text in multiple languages for quick task entry.',
                 'screenshots-title': 'See It In Action',
                 'screenshots-subtitle': 'Beautiful, intuitive design meets powerful productivity features',
+                'screenshot1-title': '📊 Quadrant View',
+                'screenshot1-desc': 'Visualize all tasks organized by the 4 quadrants with color-coded priorities',
+                'screenshot2-title': '✅ Daily Tasks',
+                'screenshot2-desc': 'Focus on today\'s priorities sorted optimally: Q2 → Q1 → Q3 → Q4',
+                'screenshot3-title': '📈 Progress & Stats',
+                'screenshot3-desc': 'Track your productivity journey with achievement levels and insights',
+                'screenshot4-title': '📅 Calendar Sync',
+                'screenshot4-desc': 'Import Google Calendar events as tasks with one tap integration',
+                'screenshot5-title': '👥 Team Projects',
+                'screenshot5-desc': 'Collaborate with teams on cloud projects and assign tasks (Premium)',
                 'testimonials-title': 'What Users Say',
                 'testimonials-subtitle': 'Join thousands who\'ve transformed their productivity',
                 'testimonial1-text': '"Finally, a task manager that actually helps me focus on what matters! The Q2 emphasis changed how I work. I\'m more strategic and less stressed."',
@@ -1125,6 +1252,16 @@
                 'feature12-desc': '使用語音命令免手動建立任務。支援多語言語音轉文字，快速輸入任務。',
                 'screenshots-title': '實際使用展示',
                 'screenshots-subtitle': '精美直覺的設計結合強大的生產力功能',
+                'screenshot1-title': '📊 象限視圖',
+                'screenshot1-desc': '將所有任務按 4 個象限視覺化呈現，使用色彩編碼優先級',
+                'screenshot2-title': '✅ 每日任務',
+                'screenshot2-desc': '專注於今天的優先事項，按最佳順序排序：Q2 → Q1 → Q3 → Q4',
+                'screenshot3-title': '📈 進度與統計',
+                'screenshot3-desc': '使用成就等級和洞察追蹤你的生產力旅程',
+                'screenshot4-title': '📅 日曆同步',
+                'screenshot4-desc': '一鍵將 Google 日曆事件匯入為任務',
+                'screenshot5-title': '👥 團隊專案',
+                'screenshot5-desc': '在雲端專案中與團隊協作並分配任務（專業版）',
                 'testimonials-title': '用戶評價',
                 'testimonials-subtitle': '加入數千位已轉變生產力的用戶',
                 'testimonial1-text': '「終於有一個真正幫助我專注於重要事項的任務管理器！Q2 的重視改變了我的工作方式。我更有策略性，壓力也更小。」',
@@ -1188,6 +1325,16 @@
                 'feature12-desc': '使用语音命令免手动建立任务。支持多语言语音转文字，快速输入任务。',
                 'screenshots-title': '实际使用展示',
                 'screenshots-subtitle': '精美直觉的设计结合强大的生产力功能',
+                'screenshot1-title': '📊 象限视图',
+                'screenshot1-desc': '将所有任务按 4 个象限可视化呈现，使用色彩编码优先级',
+                'screenshot2-title': '✅ 每日任务',
+                'screenshot2-desc': '专注于今天的优先事项，按最佳顺序排序：Q2 → Q1 → Q3 → Q4',
+                'screenshot3-title': '📈 进度与统计',
+                'screenshot3-desc': '使用成就等级和洞察追踪你的生产力旅程',
+                'screenshot4-title': '📅 日历同步',
+                'screenshot4-desc': '一键将 Google 日历事件导入为任务',
+                'screenshot5-title': '👥 团队项目',
+                'screenshot5-desc': '在云端项目中与团队协作并分配任务（专业版）',
                 'testimonials-title': '用户评价',
                 'testimonials-subtitle': '加入数千位已转变生产力的用户',
                 'testimonial1-text': '「终于有一个真正帮助我专注于重要事项的任务管理器！Q2 的重视改变了我的工作方式。我更有策略性，压力也更小。」',
@@ -1251,6 +1398,16 @@
                 'feature12-desc': '音声コマンドでハンズフリーでタスクを作成。複数言語の音声テキスト変換で素早いタスク入力。',
                 'screenshots-title': '実際の使用例',
                 'screenshots-subtitle': '美しく直感的なデザインと強力な生産性機能の組み合わせ',
+                'screenshot1-title': '📊 象限ビュー',
+                'screenshot1-desc': '4つの象限でタスクを可視化し、色分けされた優先順位で整理',
+                'screenshot2-title': '✅ 毎日のタスク',
+                'screenshot2-desc': '最適な順序で並べられた今日の優先事項に集中：Q2 → Q1 → Q3 → Q4',
+                'screenshot3-title': '📈 進捗と統計',
+                'screenshot3-desc': '達成レベルと洞察で生産性の旅を追跡',
+                'screenshot4-title': '📅 カレンダー同期',
+                'screenshot4-desc': 'ワンタップでGoogleカレンダーイベントをタスクとしてインポート',
+                'screenshot5-title': '👥 チームプロジェクト',
+                'screenshot5-desc': 'クラウドプロジェクトでチームと協力してタスクを割り当て（プレミアム）',
                 'testimonials-title': 'ユーザーレビュー',
                 'testimonials-subtitle': '生産性を変革した何千人ものユーザーに参加',
                 'testimonial1-text': '「ついに、重要なことに集中するのを本当に助けてくれるタスクマネージャー！Q2の重視が私の働き方を変えました。より戦略的で、ストレスも少なくなりました。」',
@@ -1314,6 +1471,16 @@
                 'feature12-desc': '음성 명령으로 핸즈프리로 작업 생성. 여러 언어로 빠른 작업 입력을 위한 음성-텍스트 변환.',
                 'screenshots-title': '실제 사용 모습',
                 'screenshots-subtitle': '아름답고 직관적인 디자인과 강력한 생산성 기능의 결합',
+                'screenshot1-title': '📊 사분면 보기',
+                'screenshot1-desc': '4개 사분면으로 모든 작업을 시각화하고 색상 코드 우선순위로 정리',
+                'screenshot2-title': '✅ 일일 작업',
+                'screenshot2-desc': '최적 순서로 정렬된 오늘의 우선순위에 집중：Q2 → Q1 → Q3 → Q4',
+                'screenshot3-title': '📈 진행 상황 및 통계',
+                'screenshot3-desc': '성취 레벨과 인사이트로 생산성 여정 추적',
+                'screenshot4-title': '📅 캘린더 동기화',
+                'screenshot4-desc': '한 번의 탭으로 Google 캘린더 이벤트를 작업으로 가져오기',
+                'screenshot5-title': '👥 팀 프로젝트',
+                'screenshot5-desc': '클라우드 프로젝트에서 팀과 협업하고 작업 할당 (프리미엄)',
                 'testimonials-title': '사용자 리뷰',
                 'testimonials-subtitle': '생산성을 변화시킨 수천 명의 사용자와 함께하세요',
                 'testimonial1-text': '「드디어 중요한 것에 집중하는 데 실제로 도움이 되는 작업 관리자! Q2 강조가 제 일하는 방식을 바꿨습니다. 더 전략적이고 스트레스도 덜 받습니다.」',
@@ -1404,6 +1571,65 @@
             el.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
             observer.observe(el);
         });
+
+        // Screenshots swipeable functionality
+        const screenshotsContainer = document.getElementById('screenshotsContainer');
+        const scrollIndicators = document.querySelectorAll('.scroll-indicator');
+
+        function scrollScreenshots(direction) {
+            const scrollAmount = 330; // screenshot width + gap
+            screenshotsContainer.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        function scrollToScreenshot(index) {
+            const scrollAmount = 330; // screenshot width + gap
+            screenshotsContainer.scrollTo({
+                left: index * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
+        // Update active indicator on scroll
+        screenshotsContainer.addEventListener('scroll', () => {
+            const scrollPosition = screenshotsContainer.scrollLeft;
+            const scrollAmount = 330;
+            const activeIndex = Math.round(scrollPosition / scrollAmount);
+            
+            scrollIndicators.forEach((indicator, index) => {
+                if (index === activeIndex) {
+                    indicator.classList.add('active');
+                } else {
+                    indicator.classList.remove('active');
+                }
+            });
+        });
+
+        // Touch swipe support for mobile
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        screenshotsContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        screenshotsContainer.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            if (touchStartX - touchEndX > swipeThreshold) {
+                // Swiped left
+                scrollScreenshots(1);
+            } else if (touchEndX - touchStartX > swipeThreshold) {
+                // Swiped right
+                scrollScreenshots(-1);
+            }
+        }
     </script>
 </body>
 </html>
