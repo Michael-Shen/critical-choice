@@ -72,14 +72,14 @@
         .logo-icon {
             width: 36px;
             height: 36px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: 700;
-            font-size: 18px;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .nav-links {
@@ -712,7 +712,7 @@
     <header class="header">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-icon">4Q</div>
+                <div class="logo-icon"><img src="images/icon.png" alt="Critical Choice Icon"></div>
                 Critical Choice
             </a>
             <div style="display: flex; align-items: center; gap: 30px;">
@@ -930,29 +930,29 @@
 
             <!-- Premium Features Highlight -->
             <div style="margin-top: 80px; padding: 60px 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 30px; color: white; text-align: center;">
-                <h3 style="font-size: 32px; font-weight: 700; margin-bottom: 20px;">✨ Unlock Premium Features</h3>
-                <p style="font-size: 18px; opacity: 0.95; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;">
+                <h3 style="font-size: 32px; font-weight: 700; margin-bottom: 20px;" data-i18n="premium-title">✨ Unlock Premium Features</h3>
+                <p style="font-size: 18px; opacity: 0.95; margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto;" data-i18n="premium-desc">
                     Upgrade to Premium for 11 local projects, 5 cloud projects with team collaboration, custom tags, task assignment, and real-time sync. Perfect for professionals and teams.
                 </p>
                 <div style="display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; margin-top: 30px;">
                     <div style="text-align: center;">
                         <div style="font-size: 48px; font-weight: 700; margin-bottom: 5px;">11</div>
-                        <div style="font-size: 16px; opacity: 0.9;">Local Projects</div>
+                        <div style="font-size: 16px; opacity: 0.9;" data-i18n="premium-local">Local Projects</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 48px; font-weight: 700; margin-bottom: 5px;">5</div>
-                        <div style="font-size: 16px; opacity: 0.9;">Cloud Projects</div>
+                        <div style="font-size: 16px; opacity: 0.9;" data-i18n="premium-cloud">Cloud Projects</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 48px; font-weight: 700; margin-bottom: 5px;">👥</div>
-                        <div style="font-size: 16px; opacity: 0.9;">Team Collaboration</div>
+                        <div style="font-size: 16px; opacity: 0.9;" data-i18n="premium-team">Team Collaboration</div>
                     </div>
                     <div style="text-align: center;">
                         <div style="font-size: 48px; font-weight: 700; margin-bottom: 5px;">🏷️</div>
-                        <div style="font-size: 16px; opacity: 0.9;">Custom Tags</div>
+                        <div style="font-size: 16px; opacity: 0.9;" data-i18n="premium-tags">Custom Tags</div>
                     </div>
                 </div>
-                <div style="margin-top: 40px; font-size: 14px; opacity: 0.85;">
+                <div style="margin-top: 40px; font-size: 14px; opacity: 0.85;" data-i18n="premium-price">
                     $3.99/month or $29.99/year
                 </div>
             </div>
@@ -1069,7 +1069,7 @@
             <h2 data-i18n="cta-title">Ready to Master Your Productivity?</h2>
             <p data-i18n="cta-subtitle">Download Critical Choice today and start working on what truly matters.</p>
             <div class="cta-buttons">
-                <a href="#" class="btn btn-primary">
+                <a href="https://apps.apple.com/tw/app/%E9%97%9C%E9%8D%B5%E4%BB%BB%E5%8B%99/id6756776644" class="btn btn-primary">
                     <span>📱</span>
                     <span data-i18n="btn-download">Download on App Store</span>
                 </a>
@@ -1199,7 +1199,14 @@
                 'testimonial3-role': 'Designer',
                 'cta-title': 'Ready to Master Your Productivity?',
                 'cta-subtitle': 'Download Critical Choice today and start working on what truly matters.',
-                'cta-note': 'Free to download • No ads • Focus on what\'s important'
+                'cta-note': 'Free to download • No ads • Focus on what\'s important',
+                'premium-title': '✨ Unlock Premium Features',
+                'premium-desc': 'Upgrade to Premium for 11 local projects, 5 cloud projects with team collaboration, custom tags, task assignment, and real-time sync. Perfect for professionals and teams.',
+                'premium-local': 'Local Projects',
+                'premium-cloud': 'Cloud Projects',
+                'premium-team': 'Team Collaboration',
+                'premium-tags': 'Custom Tags',
+                'premium-price': '$3.99/month or $29.99/year'
             },
             zh: {
                 'nav-features': '功能特色',
@@ -1272,7 +1279,14 @@
                 'testimonial3-role': '設計師',
                 'cta-title': '準備好掌握你的生產力了嗎？',
                 'cta-subtitle': '立即下載 Critical Choice，開始專注於真正重要的事情。',
-                'cta-note': '免費下載 • 無廣告 • 專注於重要的事'
+                'cta-note': '免費下載 • 無廣告 • 專注於重要的事',
+                'premium-title': '✨ 解鎖專業版功能',
+                'premium-desc': '升級至專業版，享有 11 個本地專案、5 個雲端專案，支援團隊協作、自訂標籤、任務分配及即時同步。專為專業人士和團隊打造。',
+                'premium-local': '本地專案',
+                'premium-cloud': '雲端專案',
+                'premium-team': '團隊協作',
+                'premium-tags': '自訂標籤',
+                'premium-price': '每月 $3.99 或 每年 $29.99'
             },
             'zh-cn': {
                 'nav-features': '功能特色',
@@ -1345,7 +1359,14 @@
                 'testimonial3-role': '设计师',
                 'cta-title': '准备好掌握你的生产力了吗？',
                 'cta-subtitle': '立即下载 Critical Choice，开始专注于真正重要的事情。',
-                'cta-note': '免费下载 • 无广告 • 专注于重要的事'
+                'cta-note': '免费下载 • 无广告 • 专注于重要的事',
+                'premium-title': '✨ 解锁专业版功能',
+                'premium-desc': '升级至专业版，享有 11 个本地项目、5 个云端项目，支持团队协作、自定义标签、任务分配及实时同步。专为专业人士和团队打造。',
+                'premium-local': '本地项目',
+                'premium-cloud': '云端项目',
+                'premium-team': '团队协作',
+                'premium-tags': '自定义标签',
+                'premium-price': '每月 $3.99 或 每年 $29.99'
             },
             ja: {
                 'nav-features': '機能',
@@ -1418,7 +1439,14 @@
                 'testimonial3-role': 'デザイナー',
                 'cta-title': '生産性をマスターする準備はできましたか？',
                 'cta-subtitle': '今すぐCritical Choiceをダウンロードして、本当に重要なことに取り組み始めましょう。',
-                'cta-note': '無料ダウンロード • 広告なし • 重要なことに集中'
+                'cta-note': '無料ダウンロード • 広告なし • 重要なことに集中',
+                'premium-title': '✨ プレミアム機能のロック解除',
+                'premium-desc': 'プレミアムにアップグレードして、11個のローカルプロジェクト、チームコラボレーション付き5個のクラウドプロジェクト、カスタムタグ、タスク割り当て、リアルタイム同期を利用できます。プロフェッショナルやチームに最適です。',
+                'premium-local': 'ローカルプロジェクト',
+                'premium-cloud': 'クラウドプロジェクト',
+                'premium-team': 'チームコラボレーション',
+                'premium-tags': 'カスタムタグ',
+                'premium-price': '月額$3.99または年額$29.99'
             },
             ko: {
                 'nav-features': '기능',
@@ -1491,7 +1519,14 @@
                 'testimonial3-role': '디자이너',
                 'cta-title': '생산성을 마스터할 준비가 되셨나요?',
                 'cta-subtitle': '오늘 Critical Choice를 다운로드하고 진정으로 중요한 것에 집중하기 시작하세요.',
-                'cta-note': '무료 다운로드 • 광고 없음 • 중요한 것에 집중'
+                'cta-note': '무료 다운로드 • 광고 없음 • 중요한 것에 집중',
+                'premium-title': '✨ 프리미엄 기능 잠금 해제',
+                'premium-desc': '프리미엄으로 업그레이드하여 11개의 로컬 프로젝트, 팀 협업이 가능한 5개의 클라우드 프로젝트, 사용자 정의 태그, 작업 할당, 실시간 동기화를 이용하세요. 전문가와 팀에 완벽합니다.',
+                'premium-local': '로컬 프로젝트',
+                'premium-cloud': '클라우드 프로젝트',
+                'premium-team': '팀 협업',
+                'premium-tags': '사용자 정의 태그',
+                'premium-price': '월 $3.99 또는 연 $29.99'
             }
         };
 
@@ -1538,13 +1573,16 @@
         // Smooth scroll for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
+                const href = this.getAttribute('href');
+                if (href && href.length > 1) {
+                    e.preventDefault();
+                    const target = document.querySelector(href);
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
                 }
             });
         });
